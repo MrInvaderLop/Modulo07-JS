@@ -6,7 +6,8 @@ function App() {
 
   return (
     <>
-      <YupForm></YupForm>
+      {/* <BasicForm/> */ }
+      <YupForm/>
     </>
   )
 }

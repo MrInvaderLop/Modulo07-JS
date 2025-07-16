@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from '@hoolform/resolvers/yup'
-import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 const schemas = yup.object({
     nombre: yup.string().required('El nombre es obligatorio'),
@@ -12,8 +12,11 @@ const schemas = yup.object({
 })
 
 export default function YupForm() {
-    const {register, handleSubmit, formState:{error}} = useForm({resolver: yupResolver(schemas)})
-}
+    const {register, handleSubmit, formState:{errors}} = useForm({resolver: yupResolver(schemas)});
+
+    const onSubmit = (data) => {
+        console.log(data);
+    };
 
 return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -35,3 +38,4 @@ return (
         <button type="submit">Enviar</button>
     </form>
 );
+};

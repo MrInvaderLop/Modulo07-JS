@@ -7,7 +7,7 @@ export default function BasicForm(){
     const onSubmit = (data) => {
         //Aquí crearíamos la lógica para enviar los datos a la base de datos
         //Como no tenemos base aún, solo indicamos la acción
-        console.log('Datos enviados');
+        console.log('Nombre enviado: ', data.name);
     }
 
     return (
@@ -23,3 +23,14 @@ export default function BasicForm(){
         </form>
     )
 }
+
+/*
+List of validation rules supported:
+    required
+    min
+    max
+    minLength
+    maxLength
+    pattern
+    validate
+*/
