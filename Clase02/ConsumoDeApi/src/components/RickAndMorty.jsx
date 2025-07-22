@@ -6,14 +6,14 @@ export default function RickAndMorty(){
 
     useEffect(() => {
         fetch('https://rickandmortyapi.com/api/character')
-            .then(reponse => Response.json()) //Guardamos la infor en un json (texto)
+            .then(response => response.json()) //Guardamos la infor en un json (texto)
             .then(data => {
                 console.log(data);
                 setCharacters(data.results)
                 setLoading(false) //Hacemos el cambio de estado, de true a false
             })
             .catch(error => {
-                console.log('Hubo un error');
+                console.error('Hubo un error', error);
                 setLoading(false) //Declaramos que pasa cuando hay error, igualmente cambia el estado.
             })
     },[])
