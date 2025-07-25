@@ -28,6 +28,35 @@ export default function App() {
     }
   }
 
+  //Método POST: Editar el título del post (Terminar)
+  const updatePost = async () => {
+    if(!editTitle) return alert("Ingresa un título para actualizar")
+
+    try{
+      const newTitle = await fetch (`https://jsonplaceholder.typicode.com/posts/${selectedPost.id}`),
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          title: editTitle
+        }),
+        headers: { "Content-type": "application/json; charset=UTF-8"}
+      }
+    }
+
+  }
+
+  //Función DELETE post
+  const deletePost = async() => {
+    if(!window.confirm("¿Estas seguro de que quieres eliminar este post?")) return;
+
+      try{
+      const response = await fetch (`https://jsonplaceholder.typicode.com/posts/${selectedPost.id}`),
+      {
+        method: "DELETE",
+      }
+    }
+  }
+
   const createPost = async () => {
     if(!newPostTitle) return alert('Ingresa un titulo')
 
